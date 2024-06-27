@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Приклади фільтрів</title>
+</head>
+<body>
+    <h1>Приклади фільтрів</h1>
+
+    <!-- Форма для введення параметрів фільтрації -->
+    <form method="get" action="{% url 'filter_examples' %}">
+        <label for="year">Рік:</label>
+        <input type="text" id="year" name="year">
+        <br>
+        <label for="age">Вік водія:</label>
+        <input type="text" id="age" name="age">
+        <br>
+        <label for="manufacturer_name">Виробник:</label>
+        <input type="text" id="manufacturer_name" name="manufacturer_name">
+        <br>
+        <label for="car_model">Модель автомобіля:</label>
+        <input type="text" id="car_model" name="car_model">
+        <br>
+        <button type="submit">Пошук</button>
+    </form>
+
+    <h2>Автомобілі</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.model }} ({{ car.year }}) - Додано: {{ car.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Водії</h2>
+    <ul>
+        {% for driver in drivers %}
+            <li>{{ driver.name }} ({{ driver.age }}) - Додано: {{ driver.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Виробники</h2>
+    <ul>
+        {% for manufacturer in manufacturers %}
+            <li>{{ manufacturer.name }} - Додано: {{ manufacturer.created_at }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

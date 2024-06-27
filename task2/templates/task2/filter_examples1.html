@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Приклади фільтрів</title>
+</head>
+<body>
+    <h1>Приклади фільтрів</h1>
+
+    <h2>Машини 2020 або 2021</h2>
+    <ul>
+        {% for car in cars_in_2020_2021 %}
+            <li>{{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Старші водії (age > 30)</h2>
+    <ul>
+        {% for driver in old_drivers %}
+            <li>{{ driver.name }} ({{ driver.age }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Останні автомобілі (year >= 2018)</h2>
+    <ul>
+        {% for car in recent_cars %}
+            <li>{{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Молоді водії (age < 25)</h2>
+    <ul>
+        {% for driver in young_drivers %}
+            <li>{{ driver.name }} ({{ driver.age }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Старші автомобілі (year <= 2015)</h2>
+    <ul>
+        {% for car in older_cars %}
+            <li>{{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Назва виробника починається з "Toy"</h2>
+    <ul>
+        {% for manufacturer in manufacturers_startswith_toy %}
+            <li>{{ manufacturer.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Назва виробника закінчується з  "da"</h2>
+    <ul>
+        {% for manufacturer in manufacturers_endswith_da %}
+            <li>{{ manufacturer.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Водії між  20 та 30 років</h2>
+    <ul>
+        {% for driver in mid_age_drivers %}
+            <li>{{ driver.name }} ({{ driver.age }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Машини без водіїв</h2>
+    <ul>
+        {% for car in cars_without_driver %}
+            <li>{{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Виробники які починаються з великої літери</h2>
+    <ul>
+        {% for manufacturer in manufacturers_regex %}
+            <li>{{ manufacturer.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Машини в назвах яких є слово "Model"</h2>
+    <ul>
+        {% for car in cars_contain_model %}
+            <li>{{ car.model }} ({{ car.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Всі машини  "Toyota"</h2>
+    <ul>
+        {% for manufacturer in exact_manufacturer %}
+            <li>{{ manufacturer.name }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
